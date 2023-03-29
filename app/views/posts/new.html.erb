@@ -1,0 +1,27 @@
+# <h2>予定の新規追加</h2>
+# <%= form_with url: "/tasks/create", local: true do |f| %>
+#     <p><%= f.text_field :title %></p>
+#     <p><%= f.submit "CREATE" %></p>
+# <% end %>
+
+<h2>予定の新規追加</h2>
+<%= form_with model: Post.new do |f| %>
+    <p><%= f.text_field :title %></p>
+   
+    
+        <%= f.label :ID %>
+        <%= f.text_field :title %><br>
+        <%= f.label :タイトル %>
+        <%= f.text_field :title %><br>
+        <%= f.label :開始日 %>
+        <%= f.text_field :start_at %><br>
+        <%= f.label :終了日　%>
+        <%= f.text_field :end_at %><br>
+        <%= f.label :終日%>
+        <%= f.text_field :allday %><br>
+        <%= f.label :更新日時%>
+        <%= f.label :メモ %>
+        <%= f.text_area :content %>
+        <%= f.submit "送信" %>
+ <p><%= f.submit "保存" %></p>
+<% end %>

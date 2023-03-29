@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ScheduleApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+  <header>
+  <nav class="navbar Navbar">
+    <div class="container-fluid">
+      <p class="text-center Navbar__text">
+        スケジュール管理アプリ
+      </p>
+    </div>
+  </nav>
+</header>
+    <%= yield %>
+  </body>
+</html>
