@@ -12,7 +12,7 @@
  *
  *= require_tree .
  *= require_self
-
+*/
  
 table th {
   background-color: #fbc25b;
@@ -24,12 +24,12 @@ table td {
   padding: 10px 20px;
 }
 
-.notice {
+.success {
   background-color: #ccf;
   padding: 5px;
 }
 
- */
+ 
 
 
 

@@ -5,7 +5,8 @@ class CreatePosts < ActiveRecord::Migration[7.0]
       t.integer :start_at
       t.integer :end_at
       t.string :allday
-      t.string:memo
+      t.string :memo
+
       t.timestamps
     end
   end

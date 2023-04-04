@@ -7,17 +7,12 @@ class PostsController < ApplicationController
     end
 
     def create
-        Post.create(title: params[:title])
-        redirect_to "/tasks"
-    end
-    def create
         @post = Post.new(post_params)
         # 投稿データが作成された場合
         if @post.save
             flash[:success] = "投稿を作成しました"
             redirect_to posts_path
         else
-            作成できなかった場合
             flash.now[:failure] = "投稿を作成できませんでした"
             render :new
         end
@@ -25,28 +20,29 @@ class PostsController < ApplicationController
 
 
     def destroy
-        @task = Task.find(params[:id])
-        @task.destroy
-        redirect_to "/tasks"
+        @post = Post.find(params[:id])
+        @post.destroy
+        flash[:notice] = "予定を削除しました"
+        redirect_to :posts
     end
-    def create
-    end
+   
   
     def show
+        @post = Post.find(params[:id])
     end
   
     def edit
+        @post = Post.find(params[:id])
     end
   
     def update
         @post = Post.find(params[:id])
-
-        if @post = post.update()
-            # 投稿データが更新された場合
-        else
-        end
-    
-
+     if @post.update(post_params)
+       flash[:notice] = "ユーザーIDが「#{@post.id}」の情報を更新しました"
+       redirect_to :posts
+     else
+       render "edit"
+     end
     end
 
     def post_params
@@ -54,7 +50,8 @@ class PostsController < ApplicationController
             :title,
             :start_at,
             :end_at,
-            :allday
+            :allday,
+            :memo
         )
     end
   

@@ -4,8 +4,12 @@ one:
   title: MyString
   start_at: 1
   end_at: 1
+  allday: MyString
+  memo: MyString
 
 two:
   title: MyString
   start_at: 1
   end_at: 1
+  allday: MyString
+  memo: MyString
