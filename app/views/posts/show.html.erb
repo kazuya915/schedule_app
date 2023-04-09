@@ -18,7 +18,12 @@
     </tr>
     <tr>
         <th>終日</th>
-        <td><%= @post.allday %></td>
+        <td>
+            <% if @post.allday == '1' %>
+            ○
+            <% else @post.allday == '0' %>
+            <% end %>
+        </td>
     </tr>
     <tr>
         <th>メモ</th>
@@ -26,6 +31,8 @@
     </tr>
     </table>
 </div>
+
+<p><%= link_to "編集", edit_post_path %></p>
 
 
 
