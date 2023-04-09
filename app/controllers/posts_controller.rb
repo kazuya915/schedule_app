@@ -3,7 +3,7 @@ class PostsController < ApplicationController
         @posts = Post.all
     end
     def new
-        @posts = Post.new
+        @post = Post.new
     end
 
     def create
@@ -14,7 +14,8 @@ class PostsController < ApplicationController
             redirect_to posts_path
         else
             flash.now[:failure] = "投稿を作成できませんでした"
-            render :new
+            render :new,status: :unprocessable_entity
+            
         end
     end
 
@@ -38,10 +39,11 @@ class PostsController < ApplicationController
     def update
         @post = Post.find(params[:id])
      if @post.update(post_params)
-       flash[:notice] = "ユーザーIDが「#{@post.id}」の情報を更新しました"
+       flash[:notice] = "スケジュールを更新しました"
        redirect_to :posts
      else
-       render "edit"
+        flash.now[:failure] = "スケジュールの更新に失敗しました"
+        render "edit",status: :unprocessable_entity
      end
     end
 

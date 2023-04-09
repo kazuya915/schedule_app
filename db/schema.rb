@@ -13,8 +13,8 @@
 ActiveRecord::Schema[7.0].define(version: 2023_03_29_154403) do
   create_table "posts", force: :cascade do |t|
     t.string "title"
-    t.integer "start_at"
-    t.integer "end_at"
+    t.date "start_at"
+    t.date "end_at"
     t.string "allday"
     t.string "memo"
     t.datetime "created_at", null: false
